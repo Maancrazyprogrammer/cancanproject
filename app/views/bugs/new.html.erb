@@ -1,0 +1,30 @@
+<h1>Assign Bugs To Developer</h1>
+
+<%= form_with model: @bug do |form| %>
+  <div>
+    <%= form.label :'Bug title' %><br>
+    <%= form.text_field :bug_title %>
+    
+     
+   
+  </div>
+
+  <div>
+    <%= form.label :'Bug des' %><br>
+    <%= form.text_area :bug_des %><br>
+   
+  </div>
+    <div>
+    <%= form.collection_select(:user_id, User.all, :id, :name, :prompt => true) %>
+  
+
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to "back", bugs_path  %>
+

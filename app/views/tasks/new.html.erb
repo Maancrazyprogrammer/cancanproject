@@ -1,0 +1,28 @@
+<h1>New Project</h1>
+
+<%= form_with model: @task do |form| %>
+  <div>
+    <%= form.label :'Project title' %><br>
+    <%= form.text_field :task_title %>
+    
+     
+   
+  </div>
+
+  <div>
+    <%= form.label :'Project des' %><br>
+    <%= form.text_area :task_des %><br>
+   
+  </div>
+    <div>
+    <%= form.collection_select(:user_id, User.all, :id, :name, :prompt => true) %>
+  
+
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to "back to project", tasks_path  %>
+

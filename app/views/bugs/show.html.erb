@@ -1,0 +1,53 @@
+<h1>Bugs Details</h1>
+
+<table border="1" >
+    <tr>
+        <th>bugID</th>
+        <th>bug title</th>
+        <th>bug description</th>
+        <th>Assigned User</th>
+        <th>Action</th>
+
+    </tr>
+    <tr>
+       
+        <td>
+
+     
+        <%= @bug.id %>
+     
+    
+        </td>
+        <td>
+
+        <%= @bug.bug_title %>
+     
+    
+        </td>
+        <td>
+   
+     
+        <%= @bug.bug_des %>
+     
+    
+        </td>
+        <td>
+                
+     
+        <%= @bug.user.name %>
+     
+
+        </td>
+        <td>
+            <% if can? :update, @bug %>
+  <%= link_to "Edit", edit_bug_path(@bug) %>
+<% end %>
+          
+        </td>
+        <td>
+            <%= link_to "back", bugs_path  %>
+
+            </td>
+    </tr>
+    
+</table>

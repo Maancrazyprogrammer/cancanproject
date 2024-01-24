@@ -1,0 +1,62 @@
+
+<h1>Project Details</h1>
+
+<table border="1">
+    <tr>
+        <th>ProjectID</th>
+        <th>Project title</th>
+        <th>Project description</th>
+        <th>Assigned User</th>
+        <th>Action</th>
+
+        
+    </tr>
+    <tr>
+         <% @tasks.each do |task| %>
+        <td>
+
+     
+        <%= task.id %>
+     
+    
+        </td>
+        <td>
+
+        <%= task.task_title %>
+     
+    
+        </td>
+        <td>
+   
+     
+        <%= task.task_des %>
+     
+    
+        </td>
+        <td>
+                
+     
+        <%= task.user.name %>
+     
+
+        </td>
+           <td>
+            <% if can? :update, @task %>
+  <%= link_to "Edit", edit_task_path(task) %>
+<% end %>
+          
+        </td>
+        
+    </tr>
+     <% end %>
+</table>
+
+
+
+
+<%= link_to "bug detail", bugs_path   %>
+    <% if can? :create, @task %>
+  <%= link_to "create project", new_task_path %>
+<% end %>
+
+          

@@ -1,0 +1,53 @@
+<h1>Your Project Details</h1>
+
+<table border="1" >
+    <tr>
+        <th>ProjectID</th>
+        <th>Project title</th>
+        <th>Project description</th>
+        <th>Assigned User</th>
+        <th>Action</th>
+
+    </tr>
+    <tr>
+       
+        <td>
+
+     
+        <%= @task.id %>
+     
+    
+        </td>
+        <td>
+
+        <%= @task.task_title %>
+     
+    
+        </td>
+        <td>
+   
+     
+        <%= @task.task_des %>
+     
+    
+        </td>
+        <td>
+                
+     
+        <%= @task.user.name %>
+     
+
+        </td>
+        <td>
+            <% if can? :update, @task %>
+  <%= link_to "Edit", edit_task_path(@task) %>
+<% end %>
+          
+        </td>
+        <td>
+            <%= link_to "back", tasks_path  %>
+
+            </td>
+    </tr>
+    
+</table>
